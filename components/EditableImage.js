@@ -53,7 +53,7 @@ export default function EditableImage({type,src,onChange,className,editable=fals
           </div>
         )}
         <div className={"cover flex items-center overflow-hidden "+className}>
-          {src && (<image src={src} className="w-full" alt=""/>)}
+          {src && (<img src={src} className="w-full" alt=""/>)}
         </div>
       </div>
     </FileDrop>

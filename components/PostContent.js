@@ -123,7 +123,7 @@ export default function PostContent({
       <div className="flex -mx-1 mt-2">
         {images.map((img) => (
           <div className="m-1" key={img}>
-            <image src={img} alt="" className="rounded-xl max-h-80 object-cover" />
+            <img src={img} alt="" className="rounded-xl max-h-80 object-cover" />
           </div>
         ))}
       </div>

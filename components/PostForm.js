@@ -41,7 +41,7 @@ export default function PostForm({onPost,compact,parent,placeholder='What\'s hap
               <div className="flex -mx-2">
                 {images.length > 0 && images.map(img => (
                   <div className="h-24 m-2" key={img}>
-                    <image src={img} alt="" className="h-24" />
+                    <img src={img} alt="" className="h-24" />
                   </div>
                 ))}
                 {isUploading && (
