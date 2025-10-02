@@ -7,8 +7,11 @@ import axios from "axios";
 import PostContent from "../components/PostContent";
 import Layout from "../components/Layout";
 import {useRouter} from "next/router";
+import SearchUser from "../components/SearchUser";
+
 
 export default function Home() {
+  const [result, setResult] = useState(null);
 
   const {data:session} = useSession();
   const {userInfo,setUserInfo,status:userInfoStatus} = useUserInfo();
@@ -48,6 +51,23 @@ export default function Home() {
 
   return (
     <Layout>
+      {/** Search User Component **/}
+      <div className="p-5">
+        <SearchUser onResult={(data) => setResult(data)} />
+
+        {result?.user && (
+          <div className="mt-4 p-4 border border-twitterBorder rounded-xl">
+            <div className="font-semibold text-lg">{result.user.name}</div>
+            <div className="text-twitterLightGray">@{result.user.username}</div>
+            <div className="text-sm mt-1">_id: {result.user._id}</div>
+            <div className="text-sm mt-1">
+              Following? {result.follow ? "Yes" : "No"}
+            </div>
+          </div>
+        )}
+      </div>
+      {/** End Search User Component **/}
+
       <h1 className="text-lg font-bold p-4">Home</h1>
       <PostForm onPost={() => {fetchHomePosts();}} />
       <div className="">
